@@ -1,49 +1,40 @@
-<!DOCTYPE html>
-<html>
-<html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <title>Recipe</title>
-        <title>Recipe View</title>
-        <link rel="stylesheet" href="project.css" type="text/css">
-    </head>
-    <body>
-        
-        <header>
-            <h1>RECIPE NAME</h1>
-        </header>
+{ % extends "base.html" %}
 
-        <section>
-            <h2>Recipe Characteristics:</h2>
-            <ul>
-                <li>General description:</li>
-                    <p>This is the general description of the recipe</p>
-                <li>Number of persons:</li>
-                    <p><b>N</b></p>
-                <li>Cooking time estimation: </li>
-                    <p><b>N minutes</b></p>
-            </ul>
-        </section>
+{ % block body % }
+<header>
+    <h1>{{ Recipes.title }}</h1>
+</header>
 
-        <section>
-            <h2>Ingredients:</h2>
-            <ul>
-                <li>Ingrediente 1 + unidad de medida</li>
-                <li>Ingrediente 2 + unidad de medida</li>
-                <li>Ingrediente 3 + unidad de medida</li>
-                <li>Ingrediente 4 + unidad de medida</li>
-            </ul>
-        </section>
+<section>
+    <h2>Recipe Characteristics:</h2>
+    <ul>
+        <li>General description:</li>
+            <p>{{ Recipes.description }}</p>
+        <li>Number of persons:</li>
+            <p><b>{{Recipes.n_person}}</b></p>
+        <li>Cooking time estimation: </li>
+            <p><b>{{Recipes.cooking_time}}</b></p>
+    </ul>
+</section>
 
-        <section>
-            <h2>Steps to follow:</h2>
-            <ol>
-                <li>Step 1</li>
-                <li>Step 2</li>
-                <li>Step 3</li>
-                <li>Step 4</li>
-            </ol>
-        </section>
-    </body>
-</html>
-</html>
+<section>
+    <h2>Ingredients:</h2>
+    <ul>
+        {% for i in Recipes.quantified_ingredients %}
+            <li> {{ i }}</li>
+        {% endfor %}
+    </ul>
+</section>
+
+<section>
+    <h2>Steps:</h2>
+    <ol>
+        {% for s in Recipes.steps %}
+            <li> {{ s }}</li>
+        {% endfor %}
+    </ol>
+</section>
+</body>
+
+{ % endblock % }
+
