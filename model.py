@@ -67,3 +67,4 @@ class Photos(db.Model):
     recipe_id = db.Column(db.Integer, db.ForeignKey('recipes.id'), nullable=False)
     recipe = db.relationship('Recipes', back_populates='photos')
     file_extension = db.Column(db.String(10), nullable=False)
+
