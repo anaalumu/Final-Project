@@ -5,7 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Recetario - Inicio</title>
-    <link rel="stylesheet" href="project.css">
+    <link rel="stylesheet"
+              href="{{ url_for('static', filename='styles.css') }}">
 </head>
 
 <body>
@@ -15,9 +16,10 @@
             <h2>Christmas Recipes</h2>
         </div>
         <nav>
-            <a href="#create_recipe.html">Create Recipe</a></li>
-            <a href="#userlogin.html">Log in</a></li>
-            <a href="#userregister.html">Register</a></li>
+            <a href="{{ url_for('main.index') }}">Home</a></li>
+            <a href="{{ url_for('main.create_recipe') }}">Create Recipe</a></li>
+            <a href="{{ url_for('main.userlogin') }}">Log in</a></li>
+            <a href="{{ url_for('main.userregister') }}">Register</a></li>
         </nav>
     </header>
 

@@ -22,3 +22,15 @@ def profile():
     user = model.User(1, "mary@example.com", "mary")
     return render_template("main/profile.html", user = user)
 
+@bp.route("/userlogin")
+def userlogin():
+    return render_template("main/userlogin.html")
+
+@bp.route("/userregister")
+def userregister():
+    return render_template("main/userregister.html")
+
+@bp.route("/create_recipe")
+def create_recipe():
+    return render_template("main/create_recipe.html")
+
