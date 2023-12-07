@@ -1,10 +1,14 @@
 {% extends 'base.html' %}
 
+{% block specific_css %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles_homePage.css') }}">
+{% endblock %}
+
 {% block content %}
 
 <div class="principal_image">
   <img src="static/image_homepage.jpg" />
-  <div class="centrado">Delicious ideas for your Christmas dishes</div>
+  <div class="welcome-text">Delicious ideas for your Christmas dishes</div>
 </div>
 
 <section>

@@ -1,5 +1,9 @@
 { % extends "base.html" %}
 
+{% block specific_css %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles_userregistration.css') }}">
+{% endblock %}
+
 { % block content % }
     <div class="container">
         <div class="form-box">
