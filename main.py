@@ -6,7 +6,7 @@ from . import model
 
 bp = Blueprint("main", __name__)
 
-@bp.route("/profile")
+@bp.route("/index")
 def index():
     user = model.User(1, "mary@example.com", "mary")
     recipes = [
