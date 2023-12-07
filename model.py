@@ -5,12 +5,18 @@ class User:
         self.name = name
 
 class Recipe:
-    def __init__(self, recipe_id, user, title, photo):
+    def __init__(self, recipe_id, user, title, photo, description, cooking_time, n_persons, dificulty, ingredients, steps, other_photos):
         self.recipe_id = recipe_id
         self.user = user
-        self.user_id = user.user_id
         self.title = title
         self.photo = photo
+        self.description = description
+        self.cooking_time = cooking_time
+        self.n_persons = n_persons
+        self.dificulty = dificulty
+        self.ingredients = ingredients
+        self.steps = steps
+        self.other_photos = other_photos
 
 """from . import db
 
@@ -35,6 +41,7 @@ class Recipes(db.Model):
     description = db.Column(db.String(500), nullable=False)
     n_person = db.Column(db.Integer, nullable=False)
     cooking_time = db.Column(db.Integer, nullable=False)
+    dificulty = db.Column(db.String(50), nullable=False)
     bookmarks = db.relationship('Bookmarks', back_populates='recipes')
     photos = db.relationship('Photos', back_populates='recipes')
 
