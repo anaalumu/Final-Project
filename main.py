@@ -6,15 +6,19 @@ from . import model
 
 bp = Blueprint("main", __name__)
 
-@bp.route("/")
+@bp.route("/profile")
 def index():
-    return render_template("homePage.html")
+    user = model.User(1, "mary@example.com", "mary")
+    recipes = [
+        model.Recipe(1, user, "Gingerbread Cookies", "static/recipe1.jpg"),
+        model.Recipe(2, user, "Stuffed Chicken", "static/recipe2.jpg"),
+        model.Recipe(3, user, "Panetone", "static/recipe3.jpg")      
 
-@bp.route("/recipes")
-def index():
-    return render_template("recipe.html")
+    ]
+    return render_template("main/index.html", recipes = recipes)
 
-@bp.route("/userregister")
-def index():
-    return render_template("user.html")
+@bp.route("/profile")
+def profile():
+    user = model.User(1, "mary@example.com", "mary")
+    return render_template("main/profile.html", user = user)
 
