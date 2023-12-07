@@ -1,4 +1,18 @@
-from . import db
+class User:
+    def __init__(self, user_id, email, name):
+        self.user_id = user_id
+        self.email = email
+        self.name = name
+
+class Recipe:
+    def __init__(self, recipe_id, user, title, photo):
+        self.recipe_id = recipe_id
+        self.user = user
+        self.user_id = user.user_id
+        self.title = title
+        self.photo = photo
+
+"""from . import db
 
 class User(db.Model):
     id = db.Column(db.Integer, primary_key=True)
@@ -66,5 +80,5 @@ class Photos(db.Model):
     user = db.relationship('User', back_populates='photos')
     recipe_id = db.Column(db.Integer, db.ForeignKey('recipes.id'), nullable=False)
     recipe = db.relationship('Recipes', back_populates='photos')
-    file_extension = db.Column(db.String(10), nullable=False)
+    file_extension = db.Column(db.String(10), nullable=False) - for database"""
 
